@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        button {
+            padding: 13px 30px;
+            background-color: rgb(108, 14, 14);
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        input {
+            height: 25px;
+            padding: 8px;
+
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+
+    <div>
+        <input type="number" id="InputNumber" class="InputNumber" placeholder="Enter Number">
+        <button type="button" id="subMit"> Submit</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+
+
+
+    <script>
+        let subMit = document.getElementById('subMit')
+
+
+        subMit.addEventListener('click', function () {
+            let output = document.getElementById('output')
+            let InputNumber = document.getElementById('InputNumber').value;
+            if (InputNumber % 2 == 0) {
+                output.innerHTML = " Even Number";
+            } else {
+                output.innerHTML = "Even Number";
+            }
+
+        });
+    </script>
+
+
+    <script>
+        for (let x = 1; x <= 10; x++) {
+
+            for(let y = 1; y <= x; y++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+
+
+</body>
+
+</html>

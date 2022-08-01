@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: ivory;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .body-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .ques {
+            border: 1px solid #3f51b5;
+            padding: 15px 20px;
+            margin-top: 15px;
+            max-width: 400px;
+            width: 100%;
+
+        }
+
+        #headingQue {
+            margin-bottom: 12px;
+        }
+
+        .inputDIV {
+            margin-bottom: 12px;
+            font-size: 16px;
+
+        }
+
+        .inputDIV label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 8px 20px;
+            background-color: #000;
+            color: #FFF;
+            margin-top: 0px;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+    <div class="body-content">
+        <h1> Play Quiz with Saumya</h1>
+
+        <div class="ques" id="ques">
+            <div>
+                <div class="heading">
+                    <h2 id="headingQue">question</h2>
+                </div>
+                <div class="optionDiv" id="optionDiv">
+                    <div>
+                        <div class="inputDIV">
+                            <input type="radio" class="item" id="item1" name="quesLanguage" value="a" required>
+                            <label for="item1">HTML</label>
+                        </div>
+
+                        <div class="inputDIV">
+                            <input type="radio" class="item" id="item2" name="quesLanguage" value="b" required>
+                            <label for="item2">CSS</label>
+                        </div>
+
+                        <div class="inputDIV">
+                            <input type="radio" class="item" id="item3" name="quesLanguage" value="c" required>
+                            <label for="item3">JS</label>
+                        </div>
+
+                        <div>
+                            <button type="button" id="submit" onclick="submit()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let question = [{
+                'qu': 'What does HTML stand for?',
+                'a': ' Hyperlinks and Text Markup Language',
+                'b': ' Hyper Text Markup Language',
+                'c': ' Home Tool Markup Language',
+                'rightAns': 'b'
+            },
+            {
+                'qu': 'What does CSS stand for?',
+                'a': 'Colorful Style Sheets',
+                'b': ' Computer Style Sheets',
+                'c': ' Cascading Style Sheets',
+                'rightAns': 'c',
+            },
+            {
+                'qu': 'The Bootstrap grid system is based on how many columns?',
+                'a': '7',
+                'b': '9',
+                'c': '12',
+                'rightAns': 'c'
+            }, {
+                'qu': 'Which class shapes an image to a circle?',
+                'a': '.img-round',
+                'b': '.img-circle',
+                'c': '.rounded-circle',
+                'rightAns': 'b'
+            },
+            {
+                'qu': '<p id="demo">This is a demonstration.</p>',
+                'a': 'document.getElementById("demo").innerHTML = "Hello World!";',
+                'b': 'document.getElement("p").innerHTML = "Hello World!";',
+                'c': 'document.getElementByName("p").innerHTML = "Hello World!";',
+                'rightAns': 'a'
+            }, {
+                'qu': 'How do you call a function named "myFunction"?',
+                'a': 'call myFunction()',
+                'b': 'myFunction()  ',
+                'c': 'call function myFunction()',
+                'rightAns': 'b'
+            }, {
+                'qu': 'How to write an IF statement in JavaScript?',
+                'a': 'if i = 5',
+                'b': 'if i = 5 then',
+                'c': 'if (i == 5)',
+                'rightAns': 'c'
+            }, {
+                'qu': 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
+                'a': 'if (i != 5) ',
+                'b': 'if i <> 5',
+                'c': 'if (i <> 5)',
+                'rightAns': 'a'
+            }, {
+                'qu': 'What is the correct way to write a JavaScript array?',
+                'a': ' var colors = ["red", "green", "blue"]',
+                'b': ' var colors = (1:"red", 2:"green", 3:"blue")',
+                'c': ' var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")',
+                'rightAns': 'a'
+            }, {
+                'qu': 'How do you round the number 7.25, to the nearest integer?',
+                'a': ' Math.rnd(7.25)',
+                'b': ' Math.round(7.25) ',
+                'c': ' round(7.25)',
+                'rightAns': 'b'
+            }, {
+                'qu': 'Which event occurs when the user clicks on an HTML element?',
+                'a': 'onmouseclick',
+                'b': 'onchange',
+                'c': 'onclick ',
+                'rightAns': 'c'
+            }, {
+                'qu': 'Which event occurs when the user clicks on an HTML element?',
+                'a': 'onmouseclick',
+                'b': 'onchange',
+                'c': 'onmouseover',
+                'rightAns': 'a'
+            }, {
+                'qu': 'How do you make the text bold?',
+                'a': 'font-weight:bold; ',
+                'b': 'style:bold;',
+                'c': 'font:bold;',
+                'rightAns': 'a'
+            }, {
+                'qu': 'Which property is used to change the left margin of an element?',
+                'a': 'indent',
+                'b': 'margin-left ',
+                'c': 'padding-left',
+                'rightAns': 'b'
+            }, {
+                'qu': 'What is the default value of the position property?',
+                'a': 'absolute',
+                'b': 'relative ',
+                'c': 'static',
+                'rightAns': 'c'
+            },
+        ]
+
+        let index = 0;
+        let total = question.length;
+        let right = 0,
+            wrong = 0;
+
+        let headingQue = document.getElementById('headingQue');
+        let item = document.querySelectorAll('.item');
+
+        let quesLoad = function () {
+            if (index == total) {
+                return endQuiz();
+            }
+            reset();
+            let data = question[index];
+            headingQue.innerText = `${index + 1}) ${data.qu}`;
+            item[0].nextElementSibling.innerText = data.a;
+            item[1].nextElementSibling.innerText = data.b;
+            item[2].nextElementSibling.innerText = data.c;
+        };
+
+        let submit = function () {
+            let data = question[index];
+            let ans = getAns();
+
+            if (ans == data.rightAns) {
+                right++;
+            }
+
+            // else if (ans.value == '') {
+        
+            else {
+                wrong++;
+            }
+
+
+
+            index++;
+            quesLoad();
+            return;
+        };
+
+        let getAns = function () {
+            let answer;
+            item.forEach(input => {
+
+                if (input.checked) {
+                    answer = input.value;
+                }
+          
+            
+
+
+
+
+            });
+            return answer;
+        };
+
+
+
+        let reset = function () {
+            item.forEach(input => {
+                if (input.checked) {
+                    input.checked = false;
+                }
+            });
+        };
+
+        let endQuiz = function () {
+            document.getElementById('ques').innerHTML = `
+            <h3 style="color:red; text-align:center"> Thank You for playing the quiz </h3> 
+             <h4 style="color:black; text-align:center;  font-weight: bold;"> ${right} / ${total} are currect</h4>
+              `
+        };
+        quesLoad();
+    </script>
+</body>
+
+</html>

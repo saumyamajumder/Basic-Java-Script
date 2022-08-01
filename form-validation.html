@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .overflow {
+            overflow-x: scroll;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr {
+            text-align: center;
+            background-color: aliceblue;
+        }
+
+        th {
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #f9f9f9;
+            background-color: #f9f9f9;
+        }
+
+        .form {
+            width: 100%;
+            max-width: 350px;
+            background-color: beige;
+            padding: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            width: 100%;
+        }
+
+        input {
+            height: 30px;
+            padding: 5px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 8px 20px;
+            background-color: #000;
+            color: #FFF;
+            font-size: 16px;
+        }
+    </style>
+    <h2> Submit Your Form</h2>
+    <form class="form">
+        <div class="form-group">
+            <input type="text" id="Fname" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="email" id="Femail" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="number" value="number" id="Fnumber" placeholder="Number">
+        </div>
+        <div class="form-group">
+            <input type="text" id="Faddress" placeholder="Address">
+        </div>
+        <div class="form-group">
+            <input type="text" id="Fpin" placeholder="Pin">
+        </div>
+        <div class="form-group">
+            <input type="text" id="bloodB" placeholder="blood">
+        </div>
+        <button class="btn" id="btn"> Submit</button>
+    </form>
+
+
+    <div class="overflow">
+        <table>
+            <tbody id="thead">
+                <thead>
+                    <th> Name </th>
+                    <th> Email Id </th>
+                    <th> Contact No </th>
+                    <th> Address </th>
+                    <th> Pin </th>
+                    <th> Blood Group </th>
+                    <tr>
+                        <!-- <td> 0 </td>
+                        <td> 0 </td>
+                        <td> 0 </td>
+                        <td> 0 </td> -->
+                    </tr>
+
+                </thead>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        let Fname = document.getElementById('Fname');
+        let Femail = document.getElementById('Femail');
+        let Fnumber = document.getElementById('Fnumber');
+        let Faddress = document.getElementById('Faddress');
+        let Fpin = document.getElementById('Fpin');
+        let bloodB = document.getElementById('bloodB');
+
+
+
+
+        let btn = document.getElementById('btn');
+
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (Fname.value == "") {
+                alert('Fname');
+            } else if (Femail.value == "") {
+                alert('Femail');
+            } else if (Fnumber.value == "") {
+                alert('Fnumber');
+            } 
+            
+            else {
+                let thead = document.getElementById("thead");
+                let tr = document.createElement("tr");
+                let td = document.createElement("td");
+                thead.appendChild(tr);
+
+                tr.appendChild(td);
+                td.innerHTML = Fname.value;
+
+                let td1 = document.createElement('td');
+                tr.appendChild(td1);
+                td1.innerHTML = Femail.value;
+
+                let td2 = document.createElement('td');
+                tr.appendChild(td2);
+                td2.innerHTML = Fnumber.value;
+
+                let td3 = document.createElement('td');
+                tr.appendChild(td3);
+                td3.innerHTML = Faddress.value;
+
+
+                let td4 = document.createElement('td');
+                tr.appendChild(td4);
+                td4.innerHTML = Fpin.value;
+
+                let td5 = document.createElement('td');
+                tr.appendChild(td5);
+                td5.innerHTML = bloodB.value;
+
+
+            };
+
+        });
+    </script>
+
+</body>
+
+</html>

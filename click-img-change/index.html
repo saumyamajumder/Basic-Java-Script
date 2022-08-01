@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image change</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: aliceblue;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .flexbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .totalImg {
+            display: flex;
+            padding: 15px;
+            background: #FFF;
+            box-shadow: 0 2px 12px rgb(0 0 0 / 5%);
+            border-radius: 5px;
+        }
+
+        .smallImg figure {
+            height: 120px;
+            border: 1px solid #503a3a;
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+        }
+
+        .smallImg figure img {
+            opacity: 1;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .smallImg figure:hover img {
+            opacity: 0.5;
+        }
+
+        .bigImg figure {
+            height: 500px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .bigImg {
+            margin-left: 20px;
+        }
+
+        .bigImg figure {
+            overflow: hidden;
+        }
+        .bigImg figure:hover img{
+            transform: scale(1.1);
+            transition: all 500ms ease; 
+        }
+        .bigImg figure img {
+            height: 100%;
+            transition: all 500ms ease; 
+        }
+    </style>
+
+    <div class="flexbox">
+        <div class="totalImg">
+            <div class="smallImg">
+                <figure>
+                    <img src="images/my-img.jpg" id="smallItem" onclick="imgClick(this)">
+                </figure>
+                <figure>
+                    <img src="images/banner_img2.png" id="smallItem" onclick="imgClick(this)">
+                </figure>
+                <figure>
+                    <img src="images/my-2.jpg" id="smallItem" onclick="imgClick(this)">
+                </figure>
+                <figure>
+                    <img src="images/banner_img.png" id="smallItem" onclick="imgClick(this)">
+                </figure>
+
+            </div>
+
+            <div class="bigImg">
+                <figure>
+                    <img src="images/banner_img.png" id="bigItem">
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function imgClick(e) {
+            // let smallItem = document.getElementById('smallItem');
+            let bigItem = document.getElementById('bigItem');
+            bigItem.src = e.src;
+            console.log('mdj')
+        }
+    </script>
+</body>
+
+</html>

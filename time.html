@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .box {
+            font-size: 60px;
+            text-align: center;
+            color: #FFF;
+        }
+    </style>
+
+    <div>
+        <!-- <button id="click" onclick="timeFunc()"> Click </button> -->
+        <div class="box" id="month"> </div>
+        <div class="box" id="day"> </div>
+        <div class="box" id="year"> </div>
+        <div class="box" id="box"> </div>
+    </div>
+
+    <script>
+        function timeFunc() {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ]
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
+
+
+
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            let d = days[today.getDay()];
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            let ms = today.getMilliseconds();
+            let format = "";
+
+
+            if (h < 12) {
+                format = "AM";
+            } else {
+                format = "PM";
+            }
+
+            if (h === 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+            }
+
+            if (h < 10) {
+                h = "0" + h;
+            }
+
+            if (m < 10) {
+                m = "0" + m;
+            }
+
+            if (s < 10) {
+                s = "0" + s;
+            }
+
+
+
+
+            document.getElementById('month').innerHTML = (" Month: " + monthNames[month]);
+            document.getElementById("day").innerHTML = ("Day: " + d);
+            document.getElementById("year").innerHTML = ("Year: " + year);
+
+            document.getElementById('box').innerHTML = h + ":" + m + ":" + s + " " + format;
+            setTimeout(timeFunc);
+
+        };
+        timeFunc();
+    </script>
+
+</body>
+
+</html>
